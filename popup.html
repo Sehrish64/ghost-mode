@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  body { width: 300px; margin: 0; padding: 14px; background: #0b0f1a; color: #e8eaf6;
+         font-family: Arial, sans-serif; }
+  h1 { font-size: 18px; margin: 0 0 2px; }
+  #site { color: #9aa3c7; font-size: 12.5px; margin-bottom: 10px; word-break: break-all; }
+  .stats { display: flex; gap: 8px; margin-bottom: 12px; }
+  .stat { flex: 1; background: #151b30; border: 1px solid #232a4a; border-radius: 8px;
+          padding: 8px; text-align: center; }
+  .stat b { display: block; font-size: 18px; color: #a78bfa; }
+  .stat span { font-size: 11px; color: #9aa3c7; }
+  #poof { width: 100%; background: #6d5cff; color: #fff; border: none; border-radius: 8px;
+          padding: 11px; font-size: 15px; font-weight: bold; cursor: pointer; margin-bottom: 10px; }
+  #poof:hover { background: #7d6fff; }
+  #poof:disabled { opacity: .55; cursor: wait; }
+  .row { display: flex; justify-content: space-between; align-items: center;
+         padding: 7px 0; border-top: 1px solid #1c2340; font-size: 13.5px; }
+  .row small { display: block; color: #9aa3c7; font-size: 11px; }
+  .switch { position: relative; width: 38px; height: 21px; flex: none; }
+  .switch input { opacity: 0; width: 0; height: 0; }
+  .slider { position: absolute; inset: 0; background: #2a3358; border-radius: 21px; cursor: pointer; transition: .2s; }
+  .slider:before { content: ''; position: absolute; width: 15px; height: 15px; left: 3px; top: 3px;
+                   background: #fff; border-radius: 50%; transition: .2s; }
+  .switch input:checked + .slider { background: #6d5cff; }
+  .switch input:checked + .slider:before { transform: translateX(17px); }
+  #result { min-height: 16px; font-size: 12.5px; color: #7be3a8; margin: 6px 0; }
+  .note { font-size: 11px; color: #79819f; border-top: 1px solid #1c2340; padding-top: 8px; line-height: 1.45; }
+</style>
+</head>
+<body>
+  <h1>👻 Ghost Mode</h1>
+  <div id="site">…</div>
+  <div class="stats">
+    <div class="stat"><b id="blocked">0</b><span>trackers blocked</span></div>
+    <div class="stat"><b id="wiped">0</b><span>sites wiped</span></div>
+  </div>
+  <button id="poof">👻 POOF! Is site ka data saaf karo</button>
+  <div id="result"></div>
+  <div class="row">
+    <div>Ghost Mode<small>trackers block karo</small></div>
+    <label class="switch"><input type="checkbox" id="tglGhost"><span class="slider"></span></label>
+  </div>
+  <div class="row">
+    <div>Auto-wipe<small>tab band ho to site data saaf</small></div>
+    <label class="switch"><input type="checkbox" id="tglAuto"><span class="slider"></span></label>
+  </div>
+  <div class="row">
+    <div>Fake browser pehchan<small>Firefox jaisa User-Agent</small></div>
+    <label class="switch"><input type="checkbox" id="tglUA"><span class="slider"></span></label>
+  </div>
+  <div class="note">Sach ye hai: ye extension <b>tumhare apne browser</b> ka data saaf karti hai aur trackers rokti hai. Kisi website ke server par pehle se save data (jese profile visits ya IP logs) koi extension delete nahi kar sakti.</div>
+  <script src="popup.js"></script>
+</body>
+</html>
